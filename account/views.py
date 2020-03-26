@@ -63,12 +63,12 @@ def user_station_reg(request):
     if request.method == 'POST':
         form = WorkStationReg(request.POST)
         if form.is_valid():
-            work_Station = WorkStation.objects.create(
+            work_station = WorkStation.objects.create(
                 host = form.cleaned_data['host'],
                 ip_address=form.cleaned_data['ip_addres'],
                 office=current_office
             )
-            work_Station.save()
+            work_station.save()
             return redirect("dashboard")
     else:
         try:
